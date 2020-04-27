@@ -1,0 +1,2 @@
+rootProject.name='SharedPreferenceExercise'
+include ':app'
