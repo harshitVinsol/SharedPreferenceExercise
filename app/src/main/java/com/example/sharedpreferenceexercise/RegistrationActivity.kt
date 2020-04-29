@@ -12,20 +12,22 @@ import kotlinx.android.synthetic.main.activity_registration.*
 import java.lang.String.format
 import java.text.DateFormat
 import java.util.*
-/*
-Constant values used in Shared Preferences as Keys
- */
-const val SHARED_PREF_NAME = "Profile"
-const val PROFILE_AVAILABLE = "isProfileAvailable"
-const val NAME = "name"
-const val ADDRESS = "address"
-const val AGE = "age"
-const val TIME = "time"
+
 /*
 Registration Activity used to enable Registering of a user and time of registration
  */
 class RegistrationActivity : AppCompatActivity() {
-
+    companion object{
+        /*
+        Constant values used in Shared Preferences as Keys
+        */
+        const val SHARED_PREF_NAME = "Profile"
+        const val PROFILE_AVAILABLE = "isProfileAvailable"
+        const val NAME = "name"
+        const val ADDRESS = "address"
+        const val AGE = "age"
+        const val TIME = "time"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
@@ -71,7 +73,7 @@ class RegistrationActivity : AppCompatActivity() {
     /*
     A boolean Function to check validation of Name, Address, City, State and Age Fields
      */
-    private fun validate() = if(!validateName() || !validateAddress() || !validateCity() || !validateState() || !validateAge()) false else true
+    private fun validate() = (validateName() && validateAddress() && validateCity() && validateState() && validateAge())
     /*
     A boolean Function to check the validation of Name
      */

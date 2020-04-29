@@ -15,10 +15,10 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
-        val sharedPref = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-        val name = "Name: " + sharedPref.getString(NAME, "Harshit Singh")
-        val address = "Address: " + sharedPref.getString(ADDRESS, "Address")
-        val age = "Age: " + sharedPref.getString(AGE, "0")
+        val sharedPref = getSharedPreferences(RegistrationActivity.SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val name = "Name: " + sharedPref.getString(RegistrationActivity.NAME, "Harshit Singh")
+        val address = "Address: " + sharedPref.getString(RegistrationActivity.ADDRESS, "Address")
+        val age = "Age: " + sharedPref.getString(RegistrationActivity.AGE, "0")
 
         text_name.text = name
         text_address.text = address
@@ -28,8 +28,8 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val sharedPref = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-        val time = "Your Profile was made " + convertTimeToDuration(Date().time - (sharedPref.getLong(TIME, 0)))
+        val sharedPref = getSharedPreferences(RegistrationActivity.SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val time = "Your Profile was made " + convertTimeToDuration(Date().time - (sharedPref.getLong(RegistrationActivity.TIME, 0)))
         text_time.text = time
     }
     /*
